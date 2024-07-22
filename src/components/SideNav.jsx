@@ -1,11 +1,12 @@
 import { Nav, Button } from 'react-bootstrap';
 import { BsFillHouseDoorFill, BsFileEarmarkText, BsGearWideConnected } from 'react-icons/bs';
-import './SideNav.css'; // Ensure correct path
+import './SideNav.css';
+import '../Welcome.css'
 import { Link } from 'react-router-dom';
 
 const SideNav = () => {
     return (
-        <div className="sidenav-container">
+        <div className="sidenav-container bgclr2">
             <div className="title">Admin</div>
             <Nav className="flex-column">
                 <Nav.Item>

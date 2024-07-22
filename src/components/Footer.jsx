@@ -4,7 +4,7 @@ import '../Welcome.css'
 
 const Footer = () => {
   return (
-    <footer className="bg-color-2 text-white py-3 bgclr2">
+    <footer className="bgclr2 text-white py-3">
       <Container>
         <Row>
           <Col md={6} className="text-left">

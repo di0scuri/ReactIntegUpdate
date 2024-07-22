@@ -18,17 +18,17 @@ function AdminLogin() {
 
                         <Col>
                             <Col className='col-md-12 mb-4'>
-                                <Button as={Link} to='./AdminLoginPage' variant='outline-primary' className='VPREbtn btn'>
+                                <Button as={Link} to='./AdminLoginPage' variant='outline-secondary' className='VPREbtn btn'>
                                     VPRE
                                 </Button>
                             </Col>
                             <Col className='col-md-12 mb-4'>
-                                <Button as={Link} to='./OfficeHeadLoginPage' variant='outline-primary' className='OfficeHeadbtn btn'>
+                                <Button as={Link} to='./OfficeHeadLoginPage' variant='outline-secondary' className='OfficeHeadbtn btn'>
                                     Office Head
                                 </Button>
                             </Col>
                             <Col className='col-md-12 mb-1'>
-                                <Button as={Link} to='/Login' variant='outline-primary' className='Backbtn btn'>
+                                <Button as={Link} to='/Login' variant='outline-secondary' className='Backbtn btn'>
                                     Back
                                 </Button>
                             </Col>
