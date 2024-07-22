@@ -6,7 +6,7 @@ import CNSCLogo from './components/CNSCLogo.png'
 
 const Welcome = () => {
   return (
-    <Container fluid className="vh-100 m-0 p-0">
+    <Container fluid className="vh-100 m-0 p-0 ">
       <Row className="h-100">
         <Col md={7} className='bg-color-1'>
           <Row className='d-flex justify-content-center align-items-center text-center h-100'>
@@ -27,7 +27,7 @@ const Welcome = () => {
           </Row>
         </Col>
 
-        <Col md={5} className="bg-color-2 d-flex justify-content-center align-items-center">
+        <Col md={5} className="bgclr2 d-flex justify-content-center align-items-center">
           <div>
             <Button variant='Primary'>
               <Image src={CNSCLogo} alt="CNSC Logo" fluid/>

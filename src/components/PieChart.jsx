@@ -1,16 +1,72 @@
-// src/components/PieChart.jsx
-import { Card } from 'react-bootstrap';
-import './PieChart.css';
+import React, { useRef, useEffect, useState } from 'react';
+import { Pie } from 'react-chartjs-2';
+import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
+import axios from 'axios';
 
-function PieChart() {
+// Register necessary Chart.js components
+Chart.register(ArcElement, Tooltip, Legend);
+
+const Customers = () => {
+    const chartRef = useRef(null);
+    const [chartData, setChartData] = useState({
+        labels: ['Students', 'Employees', 'Others'],
+        datasets: [
+            {
+                data: [0, 0, 0],
+                backgroundColor: ['green', 'blue', 'gray'],
+            },
+        ],
+    });
+    const [totalRespondents, setTotalRespondents] = useState(0);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:8000/fetch_client_data.php');
+                const data = response.data;
+
+                const students = data.find(item => item.type === 'student')?.count || 0;
+                const employees = data.find(item => item.type === 'employee')?.count || 0;
+                const others = data.find(item => item.type === 'others')?.count || 0;
+
+                const total = students + employees + others;
+
+                setChartData({
+                    labels: ['Students', 'Employees', 'Others'],
+                    datasets: [
+                        {
+                            data: [students, employees, others],
+                            backgroundColor: ['green', 'blue', 'gray'],
+                        },
+                    ],
+                });
+                setTotalRespondents(total);
+            } catch (error) {
+                console.error('Error fetching data', error);
+            }
+        };
+
+        fetchData();
+
+        const chartInstance = chartRef.current;
+        return () => {
+            if (chartInstance) {
+                chartInstance.destroy();
+            }
+        };
+    }, []);
+
+    const options = {
+        maintainAspectRatio: false,
+    };
+
     return (
-        <Card className="piechart-card">
-            <Card.Header>Customers</Card.Header>
-            <Card.Body>
-                <img src="/path/to/pie-chart.png" alt="Customers" className="img-fluid" />
-            </Card.Body>
-        </Card>
+        <div className="mb-3" style={{ height: '400px' }}>
+            <h2>Customers</h2>
+            <Pie ref={chartRef} data={chartData} options={options} />
+            <div>Total Respondents: {totalRespondents}</div>
+        </div>
     );
-}
+};
 
-export default PieChart;
+export default Customers;

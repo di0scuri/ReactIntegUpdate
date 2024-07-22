@@ -17,6 +17,7 @@ const Customers = () => {
             },
         ],
     });
+    const [totalRespondents, setTotalRespondents] = useState(0);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -28,6 +29,8 @@ const Customers = () => {
                 const employees = data.find(item => item.type === 'employee')?.count || 0;
                 const others = data.find(item => item.type === 'others')?.count || 0;
 
+                const total = students + employees + others;
+
                 setChartData({
                     labels: ['Students', 'Employees', 'Others'],
                     datasets: [
@@ -37,6 +40,7 @@ const Customers = () => {
                         },
                     ],
                 });
+                setTotalRespondents(total);
             } catch (error) {
                 console.error('Error fetching data', error);
             }
@@ -60,6 +64,7 @@ const Customers = () => {
         <div className="mb-3" style={{ height: '400px' }}>
             <h2>Customers</h2>
             <Pie ref={chartRef} data={chartData} options={options} />
+            <div>Total Respondents: {totalRespondents}</div>
         </div>
     );
 };

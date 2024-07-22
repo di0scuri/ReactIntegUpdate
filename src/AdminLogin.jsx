@@ -37,7 +37,7 @@ function AdminLogin() {
                     </Row>
                 </Col>
 
-                <Col md={5} className="bg-color-2 d-flex justify-content-center align-items-center">
+                <Col md={5} className="bgclr2 d-flex justify-content-center align-items-center">
                     <div>
                         <Button variant='Primary'>
                             <Image src={CNSCLogo} alt="CNSC Logo" fluid />
