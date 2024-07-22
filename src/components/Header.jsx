@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Navbar, Nav, Dropdown, Container } from 'react-bootstrap';
+import { Container, Dropdown, Nav, Navbar } from 'react-bootstrap';
 import { FaBars } from 'react-icons/fa';
-import Logo from '../components/CNSCLogo.png';
+import { Link } from 'react-router-dom';
 import AdminLoginPage from '../AdminLoginPage';
+import Logo from '../components/CNSCLogo.png';
 import CustomerLoginPage from '../CustomerLoginPage';
 import OfficeHeadLoginPage from '../OfficeHeadLoginPage';
-import '../Welcome.css'
-import { Link } from 'react-router-dom';
+import '../Welcome.css';
 
 const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -37,7 +37,7 @@ const Header = () => {
 
   return (
     <>
-      <Navbar variant="dark" fixed="top" expand="lg" className='bg-color-2'>
+      <Navbar  fixed="top" expand="lg" className='bgclr2'>
         <Container>
           <Navbar.Brand href="#" className="d-flex align-items-center">
             <img
@@ -47,7 +47,7 @@ const Header = () => {
               height="auto"
               className="d-inline-block align-top"
             />
-            <div className="d-inline-block align-top ml-3">
+            <div className="d-inline-block align-top ml-3  text-light ">
               <div>Camarines Norte State College</div>
               <div>Customer Feedback System</div>
             </div>

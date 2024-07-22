@@ -3,7 +3,6 @@ import Overview from './components/Overview';
 import QuantitativeResult from './components/QuantitativeResult';
 import PieChart from './components/PieChart';
 import './Dashboard.css';
-import Customer from './components/Customers';
 
 const Dashboard = () => (
   <div className="dashboard-container">
@@ -56,7 +55,7 @@ const Dashboard = () => (
         <QuantitativeResult />
       </Col>
       <Col md={6} className="mb-3">
-        <Customer />
+        <PieChart />
       </Col>
     </Row>
   </div>

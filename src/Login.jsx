@@ -1,8 +1,9 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Col, Container, Image, Row } from "react-bootstrap";
+import { FaUserShield, FaUsers } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, Button, Image } from "react-bootstrap"
-import './Login.css'
-import CNSCLogo from './components/CNSCLogo.png'
+import './Login.css';
+import CNSCLogo from './components/CNSCLogo.png';
 
 const Login = () => (
     <Container fluid className="vh-100 m-0 p-0">
@@ -16,14 +17,14 @@ const Login = () => (
                     </div>
 
                     <Col className='col-md-3 mb-5 pb-5'>
-                        <Button as={Link} to='./AdminLogin' variant='outline-primary' className='loginbtn btn btn-lg'>
-                            Admin Icon
+                        <Button as={Link} to='./AdminLogin' variant='outline-secondary  ' className='loginbtn btn btn-lg'>
+                        <FaUserShield size={64} style={{ color: '#8D0E0E' }} />
                             Admin
                         </Button>
                     </Col>
                     <Col className='col-md-3 mb-5 pb-5'>
-                        <Button as={Link} to='./CustomerLogin' variant='outline-primary' className='loginbtn btn btn-lg'>
-                            Customer Icon
+                        <Button as={Link} to='./CustomerLogin' variant='outline-secondary' className='loginbtn btn btn-lg'>
+                        <FaUsers size={67} style={{ color: '#8D0E0E' }} />
                             Customer
                         </Button>
                     </Col>
@@ -31,7 +32,7 @@ const Login = () => (
                 </Row>
             </Col>
 
-            <Col md={5} className="bg-color-2 d-flex justify-content-center align-items-center">
+            <Col md={5} className="bgclr2 d-flex justify-content-center align-items-center">
                 <div>
                     <Button variant='Primary'>
                         <Image src={CNSCLogo} alt="CNSC Logo" fluid />
