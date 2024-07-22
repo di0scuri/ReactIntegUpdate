@@ -1,8 +1,8 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Col, Container, Image, Row } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { Link } from 'react-router-dom';
-import './Welcome.css';
-import CNSCLogo from './components/CNSCLogo.png';
+import { Container, Row, Col, Button, Image } from "react-bootstrap"
+import './Welcome.css'
+import CNSCLogo from './components/CNSCLogo.png'
 
 const Welcome = () => {
   return (
@@ -27,7 +27,7 @@ const Welcome = () => {
           </Row>
         </Col>
 
-        <Col md={5} className="bgclr2 d-flex justify-content-center align-items-center">
+        <Col md={5} className="bg-color-2 d-flex justify-content-center align-items-center">
           <div>
             <Button variant='Primary'>
               <Image src={CNSCLogo} alt="CNSC Logo" fluid/>

@@ -1,11 +1,11 @@
-import { Button, Nav } from 'react-bootstrap';
-import { BsFileEarmarkText, BsFillHouseDoorFill, BsGearWideConnected } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Nav, Button } from 'react-bootstrap';
+import { BsFillHouseDoorFill, BsFileEarmarkText, BsGearWideConnected } from 'react-icons/bs';
 import './SideNav.css'; // Ensure correct path
+import { Link } from 'react-router-dom';
 
 const SideNav = () => {
     return (
-        <div className="sidenav-container bgclr2">
+        <div className="sidenav-container">
             <div className="title">Admin</div>
             <Nav className="flex-column">
                 <Nav.Item>

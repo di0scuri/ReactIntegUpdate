@@ -1,10 +1,10 @@
-import { Col, Container, Row } from 'react-bootstrap';
-import { FaFacebook, FaTwitter } from 'react-icons/fa';
-import '../Welcome.css';
+import { Container, Row, Col } from 'react-bootstrap';
+import { FaTwitter, FaFacebook } from 'react-icons/fa';
+import '../Welcome.css'
 
 const Footer = () => {
   return (
-    <footer className="bgclr2 text-white py-3">
+    <footer className="bg-color-2 text-white py-3">
       <Container>
         <Row>
           <Col md={6} className="text-left">

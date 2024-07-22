@@ -1,13 +1,13 @@
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Navbar, Nav, Button, Container } from 'react-bootstrap';
 import { FaBars } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 import Logo from '../components/CNSCLogo.png';
-import '../Welcome.css';
+import '../Welcome.css'
+import { Link } from 'react-router-dom';
 
 const AdminHeader = () => {
     return (
         <>
-            <Navbar variant="dark" fixed="top" expand="lg" className='bgclr2'>
+            <Navbar variant="dark" fixed="top" expand="lg" className='bg-color-2'>
                 <Container>
                     <Navbar.Brand href="#" className="d-flex align-items-center">
                         <img
@@ -27,7 +27,7 @@ const AdminHeader = () => {
                     </Navbar.Toggle>
                     <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                         <Nav>
-                            <Button as={Link} to='/Login/AdminLogin/AdminLoginPage' variant="dark"> Logout </Button>
+                            <Button as={Link} to='/Login/AdminLogin/AdminLoginPage' variant="outline-primary"> Logout </Button>
                             
                         </Nav>
                     </Navbar.Collapse>

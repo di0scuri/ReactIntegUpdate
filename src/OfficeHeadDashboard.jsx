@@ -1,9 +1,9 @@
-import { Button, Col, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Row, Col, Form, Button } from 'react-bootstrap';
 import Overview from './components/Overview';
-import PieChart from './components/PieChart';
 import QuantitativeResult from './components/QuantitativeResult';
+import PieChart from './components/PieChart';
 import './OfficeHeadDashboard.css';
+import { Link } from 'react-router-dom';
 
 const OfficeHeadDashboard = () => (
     <div className="dashboard-container">
@@ -13,10 +13,10 @@ const OfficeHeadDashboard = () => (
                     <Form.Group controlId="selectAll">
                         <Row className='d-flex align-items-center'>
                             <Col md={2} className=''>
-                                <Button as={Link} to="/Login/AdminLogin/OfficeHeadLoginPage/OfficeheadDashboard" variant='dark'>All</Button>
+                                <Button as={Link} to="/Login/AdminLogin/OfficeHeadLoginPage/OfficeheadDashboard">All</Button>
                             </Col>
                             <Col md={9} className='offset-1'>
-                                <Button as={Link} to="/Login/AdminLogin/AdminLoginPage/Print" variant='dark'>Print Report</Button>
+                                <Button as={Link} to="/Login/AdminLogin/AdminLoginPage/Print">Print Report</Button>
                                 
                             </Col>
                         </Row>
