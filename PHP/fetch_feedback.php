@@ -7,7 +7,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "integ";
+$dbname = "student_db";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -17,33 +17,21 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$acadyearID = isset($_GET['acadyearID']) ? $_GET['acadyearID'] : '';
-$semesterID = isset($_GET['semesterID']) ? $_GET['semesterID'] : '';
-$departmentID = isset($_GET['departmentID']) ? $_GET['departmentID'] : '';
-
 $sql = "
     SELECT 
-        r.q1, r.q2, r.q3, r.q4, r.q5
+        SUM(rate1) AS rate1, SUM(rate2) AS rate2, SUM(rate3) AS rate3, SUM(rate4) AS rate4, SUM(rate5) AS rate5,
+        COUNT(*) AS row_count
     FROM 
-        result r
-    JOIN 
-        feedback f ON r.feedbackID = f.feedbackID
+        feedback
     WHERE 
-        f.acadyearID = ? AND f.semesterID = ? AND f.clientID IN 
-          (SELECT clientID FROM client WHERE departmentID = ?)
+        office = 'Admission Office'
 ";
 
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("iii", $acadyearID, $semesterID, $departmentID);
-$stmt->execute();
-$result = $stmt->get_result();
+$result = $conn->query($sql);
 
-$data = [];
-while ($row = $result->fetch_assoc()) {
-    $data[] = $row;
-}
+$data = $result->fetch_assoc();
 
-$stmt->close();
 $conn->close();
 
 echo json_encode($data);
+?>
