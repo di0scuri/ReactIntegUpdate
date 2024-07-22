@@ -5,33 +5,33 @@ import { Card, Button } from 'react-bootstrap';
 import './QuantitativeResult.css';
 import axios from 'axios';
 
-const QuantitativeResult = () => {
+const QuantitativeResult = ({ acadyearID, semesterID, departmentID }) => {
     const [data, setData] = useState(null);
     const [chartType, setChartType] = useState('bar');
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/fetch_feedback.php');
+                const response = await axios.get('http://localhost:8000/fetch_feedback.php', {
+                    params: { acadyearID, semesterID, departmentID }
+                });
 
                 const results = response.data;
-                if (results) {
-                    const rate1Total = parseInt(results.rate1);
-                    const rate2Total = parseInt(results.rate2);
-                    const rate3Total = parseInt(results.rate3);
-                    const rate4Total = parseInt(results.rate4);
-                    const rate5Total = parseInt(results.rate5);
-                    const rowCount = parseInt(results.row_count);
+                const totalRespondents = results.length;
 
-                    console.log(rate1Total)
+                if (totalRespondents > 0) {
+                    const q1Total = results.reduce((acc, curr) => acc + curr.q1, 0);
+                    const q2Total = results.reduce((acc, curr) => acc + curr.q2, 0);
+                    const q3Total = results.reduce((acc, curr) => acc + curr.q3, 0);
+                    const q4Total = results.reduce((acc, curr) => acc + curr.q4, 0);
+                    const q5Total = results.reduce((acc, curr) => acc + curr.q5, 0);
 
-                    const totalResponses = rowCount * 5;
                     const percentages = [
-                        (rate1Total / totalResponses) * 100,
-                        (rate2Total / totalResponses) * 100,
-                        (rate3Total / totalResponses) * 100,
-                        (rate4Total / totalResponses) * 100,
-                        (rate5Total / totalResponses) * 100,
+                        (q1Total / (totalRespondents * 5)) * 100,
+                        (q2Total / (totalRespondents * 5)) * 100,
+                        (q3Total / (totalRespondents * 5)) * 100,
+                        (q4Total / (totalRespondents * 5)) * 100,
+                        (q5Total / (totalRespondents * 5)) * 100
                     ];
 
                     const getColor = (percentage) => {
@@ -47,7 +47,7 @@ const QuantitativeResult = () => {
                         datasets: [
                             {
                                 label: 'Client Responses',
-                                data: [rate1Total, rate2Total, rate3Total, rate4Total, rate5Total],
+                                data: [q1Total, q2Total, q3Total, q4Total, q5Total],
                                 backgroundColor: percentages.map(percentage => getColor(percentage)),
                                 borderColor: 'black',
                                 borderWidth: 1,
@@ -62,7 +62,7 @@ const QuantitativeResult = () => {
         };
 
         fetchData();
-    }, []);
+    }, [acadyearID, semesterID, departmentID]);
 
     const options = {
         maintainAspectRatio: false,
