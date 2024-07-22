@@ -1,10 +1,11 @@
-/* import { Bar } from 'react-chartjs-2';
-import 'chart.js/auto'; */
+import React from 'react';
+import { Bar } from 'react-chartjs-2';
+import 'chart.js/auto';
 import { Card } from 'react-bootstrap';
-import './QuantitativeResult.css'
+import './QuantitativeResult.css';
 
 const QuantitativeResult = () => {
-    /* const data = {
+    const data = {
         labels: ['1', '2', '3', '4', '5'],
         datasets: [
             {
@@ -17,17 +18,16 @@ const QuantitativeResult = () => {
 
     const options = {
         maintainAspectRatio: false,
-    }; */
+    };
 
-    {/* <div className="mb-3" style={{ height: '400px' }}>
-            <h2>Quantitative Result</h2>
-            <Bar data={data} options={options} />
-        </div> */}
     return (
         <Card>
             <Card.Header>Quantitative Result</Card.Header>
             <Card.Body>
-                <img src="/path/to/bar-chart.png" alt="Quantitative Result" />
+                <div className="mb-3" style={{ height: '400px' }}>
+                    <h2>Quantitative Result</h2>
+                    <Bar data={data} options={options} />
+                </div>
             </Card.Body>
         </Card>
     );
