@@ -1,0 +1,39 @@
+.sidenav-container {
+    width: 250px;
+    /* Adjust width as needed */
+    position: fixed;
+    top: 105px;
+    /* Adjust top position to clear the header */
+    bottom: 150px;
+    /* Adjust bottom position to clear the footer */
+    left: 10px;
+    /* Align to the left */
+    background-color: #343a40;
+    color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 1000;
+    /* Ensure sidebar is above other content */
+    overflow-y: auto;
+    /* Enable scrolling if content exceeds sidebar height */
+    height: calc(100vh - 320px);
+    /* Adjust height to fit between header and footer */
+}
+
+.sidenav-container .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.sidenav-container .button {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.sidenav-container .icon {
+    margin-right: 10px;
+}

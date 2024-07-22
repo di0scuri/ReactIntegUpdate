@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Actor&display=swap');
+#root {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+body {
+    background-color: #8D0E0E;
+    color: white;
+}
+
+.bg-secondary {
+    background-color: #4f4f4f !important;
+}
+
+.text-white {
+    color: white !important;
+}
+
+/* Import Google Fonts */
+
+
+/* Ensure no horizontal scroll bar appears */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.App-header {
+    background-color: #661a02;
+    color: white;
+    padding: 10px;
+    font-family: 'Actor', sans-serif;
+    /* Apply Actor font */
+    font-size: 15px;
+    /* Set font size */
+}
+
+.sidebar-content-container {
+    display: flex;
+    flex: 1;
+    /* Fill remaining vertical space */
+    overflow: hidden;
+    /* Prevent horizontal scroll */
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #D9D9D9;
+    padding: 20px;
+    flex-shrink: 0;
+    /* Ensure sidebar does not shrink */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid black;
+    /* Thin black border */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    /* Shadow effect */
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.sidebar-header {
+    font-family: 'Actor', sans-serif;
+    /* Apply Actor font */
+    font-size: 30px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar-menu li {
+    margin-bottom: 10px;
+}
+
+.sidebar-menu li a {
+    display: block;
+    color: white;
+    background-color: maroon;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid black;
+    /* Thin black border */
+    font-family: 'Actor', sans-serif;
+    /* Apply Actor font */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    /* Shadow effect */
+}
+
+.sidebar-menu li a:hover {
+    background-color: darkred;
+}
+
+.content-container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    /* Enable vertical scrolling if needed */
+}
+
+.main-content {
+    background-color: #ffffff;
+    padding: 20px;
+    height: calc(100vh - 140px);
+    /* Adjust based on header and footer height */
+    overflow-y: auto;
+    /* Enable scrolling if content exceeds container height */
+}
+
+.footer {
+    background-color: maroon;
+    color: white;
+    padding: 20px;
+    margin-top: auto;
+    /* Push footer to the bottom */
+    width: 100%;
+    /* Occupy full width */
+}
+
+.header {
+    height: 60px;
+    /* or whatever height you need */
+    position: fixed;
+    /* or relative if you don't want it fixed to the top */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* ensure it's on top */
+}
+
+.content {
+    margin-top: 60px;
+    /* equal to header height */
+    z-index: 1;
+    /* ensure it's below the header */
+}

@@ -1,0 +1,15 @@
+.print-container {
+    padding: 20px;
+    height: 100%;
+    /* Ensure it fits within its container */
+    box-sizing: border-box;
+    /* Include padding in height calculation */
+}
+
+.borderpp {
+    border: 1px black solid;
+}
+
+.boxbox {
+    height: 40px;
+}
