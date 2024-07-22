@@ -37,7 +37,7 @@ const Header = () => {
 
   return (
     <>
-      <Navbar variant="dark" fixed="top" expand="lg" className='bg-color-2'>
+      <Navbar variant="dark" fixed="top" expand="lg" className='bgclr2'>
         <Container>
           <Navbar.Brand href="#" className="d-flex align-items-center">
             <img
