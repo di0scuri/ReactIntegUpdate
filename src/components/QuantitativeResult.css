@@ -2,3 +2,16 @@
 .quantitative-card {
     margin-bottom: 20px;
 }
+.legend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+}
+
+.legend div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
