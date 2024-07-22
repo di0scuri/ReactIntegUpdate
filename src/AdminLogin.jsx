@@ -1,8 +1,8 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, Button, Image } from "react-bootstrap"
-import './AdminLogin.css'
-import CNSCLogo from './components/CNSCLogo.png'
+import './AdminLogin.css';
+import CNSCLogo from './components/CNSCLogo.png';
 
 function AdminLogin() {
     return (
@@ -18,17 +18,18 @@ function AdminLogin() {
 
                         <Col>
                             <Col className='col-md-12 mb-4'>
-                                <Button as={Link} to='./AdminLoginPage' variant='outline-primary' className='VPREbtn btn'>
+                                <Button as={Link} to='./AdminLoginPage' variant='outline-secondary' className='VPREbtn btn'>
+                                
                                     VPRE
                                 </Button>
                             </Col>
                             <Col className='col-md-12 mb-4'>
-                                <Button as={Link} to='./OfficeHeadLoginPage' variant='outline-primary' className='OfficeHeadbtn btn'>
+                                <Button as={Link} to='./OfficeHeadLoginPage' variant='outline-secondary' className='OfficeHeadbtn btn'>
                                     Office Head
                                 </Button>
                             </Col>
                             <Col className='col-md-12 mb-1'>
-                                <Button as={Link} to='/Login' variant='outline-primary' className='Backbtn btn'>
+                                <Button as={Link} to='/Login' variant='outline-secondary' className='Backbtn btn'>
                                     Back
                                 </Button>
                             </Col>
@@ -37,7 +38,7 @@ function AdminLogin() {
                     </Row>
                 </Col>
 
-                <Col md={5} className="bg-color-2 d-flex justify-content-center align-items-center">
+                <Col md={5} className="bgclr2 d-flex justify-content-center align-items-center">
                     <div>
                         <Button variant='Primary'>
                             <Image src={CNSCLogo} alt="CNSC Logo" fluid />

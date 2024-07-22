@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ListGroup, Form, Button, Card, Row, Col } from 'react-bootstrap';
-import { FaPen, FaSave } from 'react-icons/fa';
 
 const DepartmentList = () => {
     const [departments, setDepartments] = useState([]);
     const [newDepartment, setNewDepartment] = useState({ departmentacr: '', departmentname: '', password: '' });
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
-    const [editDepartment, setEditDepartment] = useState(null);
 
     useEffect(() => {
         const fetchDepartments = async () => {
@@ -29,17 +27,12 @@ const DepartmentList = () => {
         setNewDepartment({ ...newDepartment, [name]: value });
     };
 
-    const handleEditChange = (e) => {
-        const { name, value } = e.target;
-        setEditDepartment({ ...editDepartment, [name]: value });
-    };
-
     const handleAddDepartment = async () => {
         try {
             const response = await axios.post('http://localhost:8000/addDepartment.php', newDepartment);
             if (response.data.success) {
                 setSuccess(response.data.message);
-                setDepartments([...departments, { ...newDepartment, departmentID: response.data.departmentID }]);
+                setDepartments([...departments, newDepartment]);
                 setNewDepartment({ departmentacr: '', departmentname: '', password: '' });
             } else {
                 setError(response.data.message);
@@ -47,26 +40,6 @@ const DepartmentList = () => {
         } catch (error) {
             console.error('Error adding department:', error);
             setError('Failed to add department');
-        }
-    };
-
-    const handleEditDepartment = (department) => {
-        setEditDepartment(department);
-    };
-
-    const handleSaveDepartment = async (departmentID) => {
-        try {
-            const response = await axios.post('http://localhost:8000/updateDepartment.php', editDepartment);
-            if (response.data.success) {
-                setSuccess(response.data.message);
-                setDepartments(departments.map(dept => dept.departmentID === departmentID ? editDepartment : dept));
-                setEditDepartment(null);
-            } else {
-                setError(response.data.message);
-            }
-        } catch (error) {
-            console.error('Error updating department:', error);
-            setError('Failed to update department');
         }
     };
 
@@ -122,43 +95,7 @@ const DepartmentList = () => {
                     <ListGroup>
                         {departments.map(department => (
                             <ListGroup.Item key={department.departmentID}>
-                                {editDepartment && editDepartment.departmentID === department.departmentID ? (
-                                    <Form>
-                                        <Row>
-                                            <Col>
-                                                <Form.Control
-                                                    type="text"
-                                                    name="departmentname"
-                                                    value={editDepartment.departmentname}
-                                                    onChange={handleEditChange}
-                                                />
-                                            </Col>
-                                            <Col>
-                                                <Form.Control
-                                                    type="text"
-                                                    name="departmentacr"
-                                                    value={editDepartment.departmentacr}
-                                                    onChange={handleEditChange}
-                                                />
-                                            </Col>
-                                            <Col md="auto">
-                                                <Button variant="link" onClick={() => handleSaveDepartment(department.departmentID)}>
-                                                    <FaSave />
-                                                </Button>
-                                            </Col>
-                                        </Row>
-                                    </Form>
-                                ) : (
-                                    <Row>
-                                        <Col>{department.departmentname}</Col>
-                                        <Col>{department.departmentacr}</Col>
-                                        <Col md="auto">
-                                            <Button variant="link" onClick={() => handleEditDepartment(department)}>
-                                                <FaPen />
-                                            </Button>
-                                        </Col>
-                                    </Row>
-                                )}
+                                {department.departmentname} ({department.departmentacr})
                             </ListGroup.Item>
                         ))}
                     </ListGroup>
