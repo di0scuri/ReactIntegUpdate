@@ -1,6 +1,6 @@
 
 import './App.css'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Welcome from './Welcome.jsx';
 import Login from './Login';
 import AdminLogin from './AdminLogin.jsx';
@@ -13,7 +13,7 @@ import Settings from './Settings';
 import Print from './Print.jsx'
 //import Reports from './Reports';
 import CustomerLoginPage from './CustomerLoginPage.jsx';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Form, Button } from 'react-bootstrap';
 /* import SettingsDept from './SettingsDept.jsx'
 import SettingsNotifs from './SettingsNotifs.jsx' */
 import SettingsQuestion from './SettingsQuestions.jsx'
@@ -75,6 +75,34 @@ function AppWithRouter() {
             </div>
           </>
         } />
+        <Route path="/Login/AdminLogin/OfficeHeadLoginPage/Print" element={
+          <div className="d-flex flex-column min-vh-100">
+            <AdminHeader />
+            <Container fluid className="d-grid flex-grow-1">
+
+              <Container fluid className='mt-3'>
+
+                <Row className='offset-1 mt-5'>
+                  <Col md="auto" className='mt-'>
+                    <Form.Group controlId="selectAll">
+                      <Row className='d-flex align-items-center'>
+                        <Col md={2} className=''>
+                          <Button as={Link} to="/Login/AdminLogin/OfficeHeadLoginPage/OfficeheadDashboard">All</Button>
+                        </Col>
+                        <Col md={9} className='offset-1'>
+                          <Button as={Link} to="/Login/AdminLogin/OfficeHeadLoginPage/Print">Print Report</Button>
+                        </Col>
+                      </Row>
+                    </Form.Group>
+                  </Col>
+                  <Print />
+                </Row>
+              </Container>
+
+            </Container>
+            <Footer />
+          </div>
+        } />
         <Route path="/Login/AdminLogin/AdminLoginPage/dashboard" element={
           <div className="d-flex flex-column min-vh-100">
             <AdminHeader />
@@ -94,14 +122,12 @@ function AppWithRouter() {
         <Route path="/Login/AdminLogin/AdminLoginPage/Print" element={
           <div className="d-flex flex-column min-vh-100">
             <AdminHeader />
-            <Container fluid className="d-flex flex-grow-1">
-              <Row>
-                <Col md={2} className="p-0">
+            <Container fluid className="d-grid flex-grow-1">
+              <Row className='offset-2'>
+                <Col className="mt-n5">
                   <SideNav />
                 </Col>
-                <Col md={10} className="p-3">
-                  <Print />
-                </Col>
+                <Print />
               </Row>
             </Container>
             <Footer />

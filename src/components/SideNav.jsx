@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const SideNav = () => {
     return (
-        <div className="sidenav-container bgclr2">
+        <div className="sidenav-container">
             <div className="title">Admin</div>
             <Nav className="flex-column">
                 <Nav.Item>

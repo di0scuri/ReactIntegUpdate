@@ -16,7 +16,7 @@ const OfficeHeadDashboard = () => (
                                 <Button as={Link} to="/Login/AdminLogin/OfficeHeadLoginPage/OfficeheadDashboard">All</Button>
                             </Col>
                             <Col md={9} className='offset-1'>
-                                <Button as={Link} to="/Login/AdminLogin/AdminLoginPage/Print">Print Report</Button>
+                                <Button as={Link} to="/Login/AdminLogin/OfficeHeadLoginPage/Print">Print Report</Button>
                                 
                             </Col>
                         </Row>
