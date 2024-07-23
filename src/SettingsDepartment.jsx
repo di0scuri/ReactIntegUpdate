@@ -54,12 +54,12 @@ const DepartmentList = () => {
         setEditDepartment(department);
     };
 
-    const handleSaveDepartment = async (departmentID) => {
+    const handleSaveDepartment = async () => {
         try {
             const response = await axios.post('http://localhost:8000/updateDepartment.php', editDepartment);
             if (response.data.success) {
                 setSuccess(response.data.message);
-                setDepartments(departments.map(dept => dept.departmentID === departmentID ? editDepartment : dept));
+                setDepartments(departments.map(dept => dept.departmentID === editDepartment.departmentID ? editDepartment : dept));
                 setEditDepartment(null);
             } else {
                 setError(response.data.message);
@@ -142,7 +142,7 @@ const DepartmentList = () => {
                                                 />
                                             </Col>
                                             <Col md="auto">
-                                                <Button variant="link" onClick={() => handleSaveDepartment(department.departmentID)}>
+                                                <Button variant="link" onClick={handleSaveDepartment}>
                                                     <FaSave />
                                                 </Button>
                                             </Col>
